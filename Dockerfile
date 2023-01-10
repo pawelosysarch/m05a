@@ -1,4 +1,4 @@
-FROM nginx:1.21.6
+FROM nginx:1.23.3
 
 RUN cat /etc/os-release
 RUN groupadd gitlab-www -g 998
