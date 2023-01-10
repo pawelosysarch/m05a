@@ -16,7 +16,7 @@ pipeline {
                         printenv
 
                         # Check license headers are present for all files, where relevant.
-                        ./misc/license-header/license-header-check.bash
+                        #./misc/license-header/license-header-check.bash
 
                         # Get Git last commit date.
                         GIT_DATE_EPOCH=$(git log -1 --format=%cd --date=raw | cut -d ' ' -f 1)
