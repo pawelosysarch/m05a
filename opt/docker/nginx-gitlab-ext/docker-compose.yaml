@@ -1,0 +1,21 @@
+version: '3.5'
+
+x-logging: &logging
+  logging:
+    driver: loki
+    options:
+      loki-url: "http://loki.svc.ostc-eu.dev:3100/loki/api/v1/push"
+
+
+services:
+  nginx:
+    build: .
+    container_name: nginx-gitlab-ext
+    <<: *logging
+    volumes:
+     - /var/opt/gitlab/nginx:/var/opt/gitlab/nginx
+     - /var/opt/gitlab/gitlab-workhorse/sockets/socket:/var/opt/gitlab/gitlab-workhorse/sockets/socket
+    ports:
+     - "80:80"
+     - "443:443"
+
